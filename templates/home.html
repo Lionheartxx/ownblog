@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    {% block content %}
+        <div class="jumbotron p-4 rounded-3  shadow-lg">
+            <h2 class="display-4">Welcome!</h2>
+            <p class="lead">Welcome to Sherali Juraev's personal blog.</p>
+            <hr class="my-4">
+            <p>Here you will be informed about the latest news about programming and programmers.</p>
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="{% url 'article_list' %}" role="button">View posts</a>
+            </p>
+        </div>
+    {% endblock content %}
+</body>
+</html>

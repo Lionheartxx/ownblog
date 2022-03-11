@@ -1,0 +1,23 @@
+nav.navbar {
+    opacity: 0.9;
+    background-color: #17212B !important;
+}
+body {
+    background-color: #0E1621 !important;
+}
+
+footer div {
+    background-color: #1F2936;
+}
+
+body div div div.card{
+    background-color: #182533 !important;
+}
+
+body div div div div a.link:hover {
+    text-decoration:underline !important;
+}
+
+body div.jumbotron {
+    background-color: whitesmoke;
+}
