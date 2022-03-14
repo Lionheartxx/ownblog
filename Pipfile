@@ -12,6 +12,9 @@ environs = {extras = ["django"], version = "*"}
 psycopg2-binary = "*"
 whitenoise = "*"
 gunicorn = "*"
+django-heroku = "*"
+dj-database-url = "*"
+python-decouple = "*"
 
 [dev-packages]
 
