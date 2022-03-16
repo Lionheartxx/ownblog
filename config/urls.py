@@ -18,9 +18,6 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-# from django.views.static import serve
-# from django.conf.urls import url
-
 urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('admin/', admin.site.urls),
@@ -28,18 +25,10 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('articles/', include('articles.urls')),
     path('', include('pages.urls')),
-<<<<<<< HEAD
 ]
+# + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
-=======
-
-    # url(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}), 
-    # url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
-]
-
->>>>>>> 495c9a7ce65a57b37e31f0bd904b07b26dd52c55
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
 
 # if settings.DEBUG:
 #     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
