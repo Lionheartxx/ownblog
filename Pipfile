@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "*"
+django = "==4.0.3"
 django-crispy-forms = "*"
 pillow = "*"
 django-ckeditor = "*"
@@ -12,6 +12,9 @@ environs = {extras = ["django"], version = "*"}
 psycopg2-binary = "*"
 whitenoise = "*"
 gunicorn = "*"
+django-heroku = "*"
+dj-database-url = "*"
+python-decouple = "*"
 
 [dev-packages]
 
