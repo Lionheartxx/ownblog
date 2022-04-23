@@ -1,0 +1,41 @@
+nav.navbar {
+    opacity: 0.9;
+    background-color: #17212B !important;
+}
+body {
+    background-color: #0E1621 !important;
+}
+
+footer div {
+    background-color: #1F2936;
+}
+
+body div div div.card{
+    background-color: #182533 !important;
+}
+
+body div div div div a.link:hover {
+    text-decoration:underline !important;
+}
+
+body div.jumbotron {
+    background-color: whitesmoke;
+}
+
+body div.offcanvas {
+    background:#17212B;
+    /* width: 20%; */
+}
+
+body div div.offcanvas-header {
+    padding: 0.8rem 1rem;
+}
+
+hr {
+    background-color: black !important;
+    height: 0.09rem !important;
+}
+
+/* body div div.offcanvas-body div.accordion div.accordion-item, button.accordion-button {
+    background-color: #17212B;
+} */

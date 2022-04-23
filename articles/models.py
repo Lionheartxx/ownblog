@@ -1,7 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.urls import reverse
-from django.core.validators import MinLengthValidator, MaxLengthValidator
+from django.core.validators import MaxLengthValidator
 from ckeditor.fields import RichTextField
 
 # Create your models here.
@@ -24,14 +24,18 @@ class Article(models.Model):
 
 class Comment(models.Model):
     article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='comments')
-    comment = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
+    body = models.TextField()
     author = models.ForeignKey(
         get_user_model(),
         on_delete=models.CASCADE,
     )
+    date_added = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.comment
+        return '%s - %s' % (self.article.title, self.name)
     
     def get_absolute_url(self):
         return reverse('article_list')
+    class Meta():
+        ordering = ['-date_added']

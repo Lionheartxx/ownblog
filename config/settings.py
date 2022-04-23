@@ -30,7 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-=hs(f+h6!ow7hzqk51oe15k$l1(&=$so)_(!10o^6--#xhrnfe"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['.herokuapp.com', '127.0.0.1']
 
@@ -136,6 +136,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+
 STAITCFILES_DIRS = [str(BASE_DIR.joinpath('static'))]
 STATICFILES_DIRS = [
     BASE_DIR / "static",
@@ -143,9 +145,14 @@ STATICFILES_DIRS = [
 STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+# if DEBUG:
+#     STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+# else:
+#     STATIC_ROOT = os.path.join(BASE_DIR, 'media')
+
+# MEDIA_ROOT = [os.path.join(BASE_DIR, 'media')]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
 
 
 # Default primary key field type
@@ -164,8 +171,8 @@ LOGOUT_REDIRECT_URL = "home"
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 #Media
-MEDIA_URL = "/media/"
-MEDIA_ROOT = str(BASE_DIR.joinpath('media'))
+# MEDIA_URL = "/media/"
+# MEDIA_ROOT = str(BASE_DIR.joinpath('media'))
 
 # CKEditor configs
 CKEDITOR_CONFIGS = {

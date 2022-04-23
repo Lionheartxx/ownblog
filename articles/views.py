@@ -4,14 +4,16 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from django.urls import reverse_lazy
 
-from .models import Article
+from .models import Article, Comment
+from .forms import CommentForm
 
 # Create your views here.
-class ArticleListView(LoginRequiredMixin, ListView):
+class ArticleListView(ListView):
     model = Article
     template_name = 'article_list.html'
+    ordering = ['-date']
 
-class ArticleDetailView(LoginRequiredMixin, DetailView):
+class ArticleDetailView(DetailView):
     model = Article
     template_name = 'article_detail.html'
 
@@ -45,3 +47,13 @@ class ArticleCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     # if user == superuser
     def test_func(self):
         return self.request.user.is_superuser
+
+class ArticleCommentView(CreateView):
+    model = Comment
+    form_class = CommentForm
+    template_name = 'add_comment.html'
+    # fields = '__all__'
+    def form_valid(self, form):
+        form.instance.article_id = self.kwargs['pk']
+        return super().form_valid(form)
+    success_url = reverse_lazy('article_list')
